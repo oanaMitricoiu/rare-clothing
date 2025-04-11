@@ -1,7 +1,7 @@
 .button-container {
     min-width: 165px;
     width: auto;
-    height: 50px;
+    height: 3.1rem;
     letter-spacing: 0.5px;
     line-height: 50px;
     padding: 0 35px 0 35px;
@@ -31,9 +31,29 @@
         border: none;
       }
     }
+
+    &.cart {
+      background-color: black;
+      width:auto;
+      color: white;
+      border: 1px solid black;
+      height: 5rem !important;
+      line-height: 30px;
+      padding: 8px 35px;
+  
+      &:hover {
+        background-color: white;
+        color: black;
+        border: none;
+        height: 5rem !important;
+        line-height: 30px;
+        padding: 8px 35px;
+      }
+    }
   
     &.inverted {
       background-color: white;
+      width:auto;
       color: black;
       border: 1px solid black;
   
@@ -44,4 +64,12 @@
       }
     }
   }
+
+  // .cart {
+  //   background-color: white;
+  //   width:auto;
+  //   color: black;
+  //   border: 1px solid black;
+  //   height: 6rem !important;
+  // }
   

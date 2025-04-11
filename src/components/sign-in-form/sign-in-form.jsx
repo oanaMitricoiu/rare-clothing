@@ -1,7 +1,8 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {signInWithGooglePopup, createUserDocumentFromAuth,signInAuthUserWithEmailAndPassword} from "../../utils/firebase/firebase";
 import FormInput from "../form-input/form-input";
 import Button from "../button/button";
+import { UserContext } from '../../contexts/user';
 import "./sign-in-form.scss";
 import "../button/button.scss";
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -19,14 +20,18 @@ const SignInForm = () => {
     const {email,password} = formFields;
 
     console.log(formFields)
+    const{setCurrentUser} = useContext(UserContext)
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
     }
 
     const signInWithGoogle = async () => {
-        const {user} = await signInWithGooglePopup();
-        const userDocRef = createUserDocumentFromAuth(user);
+       const{user}= await signInWithGooglePopup();
+       setCurrentUser(user)
+      createUserDocumentFromAuth(user)
+       
+        
      
     }
 
@@ -34,9 +39,10 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            const response = await signInAuthUserWithEmailAndPassword(email,password);
-            console.log(response)
+        const{user} = await signInAuthUserWithEmailAndPassword(email,password);
+          
            resetFormFields(); 
+           setCurrentUser(user)
         }catch(error) {
             if(error.code === "auth/invalid-credential"){
                 alert("Incorrect email or password")

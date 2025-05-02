@@ -1,5 +1,5 @@
 import {Fragment, useContext} from "react";
-import {Outlet,Link} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import CartIcon from "../../components/cart-icon/cart-icon";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown";
 import { UserContext } from "../../contexts/user";
@@ -25,7 +25,11 @@ const Navigation = () => {
         <NavigationContainer>
         <LogoContainer  to="/">
         
-            <img width="90" height="80" src="https://img.icons8.com/hands/100/clothes.png" alt="clothes"/>
+      
+            <img width="70" height="70" src="https://img.icons8.com/hands/100/clothes.png" alt="clothes"/>
+            
+          
+
             
             {/* <img width="48" height="48" src="https://img.icons8.com/color/48/cookie-monster.png" alt="cookie-monster"/>
             <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/cookie-monster.png" alt="cookie-monster"/>

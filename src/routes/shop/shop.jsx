@@ -1,7 +1,7 @@
 import {Routes, Route} from "react-router-dom";
 import CategoriesPreview from "../categories-preview/categories-preview";
 import Category from "../../routes/category/category";
-import "./shop.scss";
+
 
 const Shop = () => {
     
